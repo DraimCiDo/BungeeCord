@@ -56,7 +56,7 @@ public class BungeeCordLauncher
             {
                 if ( !bungee.getPluginManager().dispatchCommand( ConsoleCommandSender.getInstance(), line ) )
                 {
-                    bungee.getConsole().sendMessage( new ComponentBuilder( "Command not found :C" ).color( ChatColor.RED ).create() ); //BotFilter
+                    bungee.getConsole().sendMessage( new ComponentBuilder( "Command not found" ).color( ChatColor.RED ).create() ); //BotFilter
                 }
             }
         }
