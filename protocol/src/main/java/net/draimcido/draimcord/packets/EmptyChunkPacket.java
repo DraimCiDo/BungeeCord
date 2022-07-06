@@ -15,10 +15,7 @@ import net.md_5.bungee.protocol.ProtocolConstants;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper = false, of =
-        {
-                "x", "z"
-        })
+@EqualsAndHashCode(callSuper = false, of = { "x", "z" })
 public class EmptyChunkPacket extends DefinedPacket
 {
 
