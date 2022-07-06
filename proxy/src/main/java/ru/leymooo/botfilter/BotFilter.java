@@ -71,7 +71,7 @@ public class BotFilter
 
     public BotFilter(boolean startup)
     {
-        Settings.IMP.reload( new File( "BotFilter", "config.yml" ) );
+        Settings.IMP.reload( new File( "DraimCord", "config.yml" ) );
         Scoreboard.DISABLE_DUBLICATE = Settings.IMP.FIX_SCOREBOARD_TEAMS;
         checkForUpdates( startup );
         if ( !CachedCaptcha.generated )
@@ -103,7 +103,7 @@ public class BotFilter
         {
             if ( connector.getUserConnection() != null )
             {
-                connector.getUserConnection().disconnect( "§c[BotFilter] §aПерезагрузка фильтра" );
+                connector.getUserConnection().disconnect( "§c[DraimCord] §aПерезагрузка фильтра" );
             }
             connector.setState( CheckState.FAILED );
         }
@@ -351,7 +351,7 @@ public class BotFilter
         if ( !Settings.IMP.PROTECTION.ALWAYS_CHECK && ManyChecksUtils.isManyChecks( address ) )
         {
             PacketUtils.kickPlayer( KickType.MANYCHECKS, Protocol.LOGIN, ch, version );
-            bungee.getLogger().log( Level.INFO, "(BF) [{0}] disconnected: Too many checks in 10 min", address );
+            bungee.getLogger().log( Level.INFO, "(DCD) [{0}] disconnected: Too many checks in 10 min", address );
             return;
         }
 
@@ -359,7 +359,7 @@ public class BotFilter
         if ( ping.needCheck() && ping.needKickOrRemove( address ) )
         {
             PacketUtils.kickPlayer( KickType.PING, Protocol.LOGIN, ch, version );
-            bungee.getLogger().log( Level.INFO, "(BF) [{0}] disconnected: The player did not ping the server", address.getHostAddress() );
+            bungee.getLogger().log( Level.INFO, "(DCD) [{0}] disconnected: The player did not ping the server", address.getHostAddress() );
             return;
         }
 
@@ -377,7 +377,7 @@ public class BotFilter
                 if ( checkGeoIp( address ) )
                 {
                     PacketUtils.kickPlayer( KickType.COUNTRY, Protocol.LOGIN, ch, version );
-                    bungee.getLogger().log( Level.INFO, "(BF) [{0}] disconnected: Country is not allowed",
+                    bungee.getLogger().log( Level.INFO, "(DCD) [{0}] disconnected: Country is not allowed",
                             address.getHostAddress() );
                     return;
                 }
@@ -414,7 +414,7 @@ public class BotFilter
         Logger logger = BungeeCord.getInstance().getLogger();
         try
         {
-            logger.log( Level.INFO, "[BotFilter] Проверяю наличие обновлений" );
+            logger.log( Level.INFO, "[DraimCord] Проверяю наличие обновлений" );
             URL url = new URL( "https://raw.githubusercontent.com/Leymooo/BungeeCord/master/version.txt" );
             URLConnection conn = url.openConnection();
             conn.setConnectTimeout( 1200 );
@@ -425,21 +425,21 @@ public class BotFilter
                 if ( !in.readLine().trim().equalsIgnoreCase( Settings.IMP.BOT_FILTER_VERSION ) )
                 {
 
-                    logger.log( Level.INFO, "§c[BotFilter] §aНайдена новая версия!" );
-                    logger.log( Level.INFO, "§c[BotFilter] §aПожалуйста, обновитесь!" );
-                    logger.log( Level.INFO, "§c[BotFilter] §ahttp://rubukkit.org/threads/137038" );
+                    logger.log( Level.INFO, "§c[DraimCord] §aНайдена новая версия!" );
+                    logger.log( Level.INFO, "§c[DraimCord] §aПожалуйста, обновитесь!" );
+                    logger.log( Level.INFO, "§c[DraimCord] §ahttp://rubukkit.org/threads/137038" );
                     if ( startup )
                     {
                         Thread.sleep( 3500L );
                     }
                 } else
                 {
-                    logger.log( Level.INFO, "[BotFilter] Обновлений не найдено!" );
+                    logger.log( Level.INFO, "[DraimCord] Обновлений не найдено!" );
                 }
             }
         } catch ( IOException | InterruptedException ex )
         {
-            logger.log( Level.WARNING, "[BotFilter] Не могу проверить обновление", ex );
+            logger.log( Level.WARNING, "[DraimCord] Не могу проверить обновление", ex );
         }
     }
 

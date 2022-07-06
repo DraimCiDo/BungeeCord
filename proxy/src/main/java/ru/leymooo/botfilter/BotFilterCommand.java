@@ -21,7 +21,7 @@ public class BotFilterCommand extends Command
 
     public BotFilterCommand()
     {
-        super( "botfilter", null, "bf", "antibot", "gg" );
+        super( "draimcord", null, "dcord" );
     }
 
     @Override
@@ -34,11 +34,11 @@ public class BotFilterCommand extends Command
         }
         if ( args.length == 0 )
         {
-            sender.sendMessage( "§r--------------- §bBotFilter §cv" + Settings.IMP.BOT_FILTER_VERSION + "§r-----------------" );
-            sender.sendMessage( "§r> §lbotfilter reload §6- §aПерезагружить конфиг" );
-            sender.sendMessage( "§r> §lbotfilter stat §6- §aПоказать статистику" );
-            sender.sendMessage( "§r> §lbotfilter export §6- §aВыгрузить список игроков, которые прошли проверку" );
-            sender.sendMessage( "§r> §lbotfilter protection on/off §6- §aВключить или выключить ручной режим 'под атакой'" );
+            sender.sendMessage( "§r--------------- §bDraimCord §cv" + Settings.IMP.BOT_FILTER_VERSION + "§r-----------------" );
+            sender.sendMessage( "§r> §ldraimcord reload §6- §aПерезагружить конфиг" );
+            sender.sendMessage( "§r> §ldraimcord stat §6- §aПоказать статистику" );
+            sender.sendMessage( "§r> §ldraimcord export §6- §aВыгрузить список игроков, которые прошли проверку" );
+            sender.sendMessage( "§r> §ldraimcord protection on/off §6- §aВключить или выключить ручной режим 'под атакой'" );
             sender.sendMessage( "§r--------------- §bBotFilter §r-----------------" );
         } else if ( args[0].equalsIgnoreCase( "reload" ) )
         {
@@ -66,11 +66,10 @@ public class BotFilterCommand extends Command
     private void sendStat(CommandSender sender)
     {
         BotFilter botFilter = BungeeCord.getInstance().getBotFilter();
-        sender.sendMessage( "§r----------------- §bBotFilter §cv" + Settings.IMP.BOT_FILTER_VERSION + " §r-----------------" );
+        sender.sendMessage( "§r----------------- §bDraimCord §cv" + Settings.IMP.BOT_FILTER_VERSION + " §r-----------------" );
         sender.sendMessage( "§r> §lОбнаружена атака: " + ( botFilter.isUnderAttack() ? "§cДа" : "§aНет" ) );
         sender.sendMessage( "§r> §lБотов на проверке: " + botFilter.getOnlineOnFilter() );
         sender.sendMessage( "§r> §lПрошло проверку: " + botFilter.getUsersCount() );
-        sender.sendMessage( "§r> §lСкачать BotFilter: http://www.rubukkit.org/threads/137038/" );
     }
 
     private void export(CommandSender sender, String[] args)
@@ -79,9 +78,9 @@ public class BotFilterCommand extends Command
 
         if ( args.length == 1 )
         {
-            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] §6- §aвыгрузить список тех, кто прошёл"
+            sender.sendMessage( "§r> §ldraimcord export [TIME_IN_SECONDS] §6- §aвыгрузить список тех, кто прошёл"
                 + " проверку за указаное время. укажите ALL чтобы получить за всё время." );
-            sender.sendMessage( "§r> §lbotfilter export [TIME_IN_SECONDS] JOIN §6- §aвыгрузить список тех,"
+            sender.sendMessage( "§r> §ldraimcord export [TIME_IN_SECONDS] JOIN §6- §aвыгрузить список тех,"
                 + " кто зашёл на сервер за указанное время (Учитывает и тех кто  также и прошёл проверку)." );
             return;
         }
@@ -126,13 +125,13 @@ public class BotFilterCommand extends Command
 
     private void exportToFile(List<String> out, boolean join)
     {
-        Path outFile = new File( "BotFilter", "whitelist.out." + ( join ? "join" : "" ) + ".txt" ).toPath();
+        Path outFile = new File( "DraimCord", "whitelist.out." + ( join ? "join" : "" ) + ".txt" ).toPath();
         try
         {
             Files.write( outFile, out, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING );
         } catch ( IOException e )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] Could not export ip's to file", e );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Could not export ip's to file", e );
         }
     }
 

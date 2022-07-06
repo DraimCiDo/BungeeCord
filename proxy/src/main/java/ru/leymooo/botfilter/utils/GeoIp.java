@@ -92,7 +92,7 @@ public class GeoIp
 
     private void setupDataBase(boolean startup)
     {
-        File file = new File( "BotFilter", "GeoIP.mmdb" );
+        File file = new File( "DraimCord", "GeoIP.mmdb" );
         if ( !file.exists() || ( startup && ( System.currentTimeMillis() - file.lastModified() ) > TimeUnit.DAYS.toMillis( 14 ) ) )
         {
             //file.delete();
@@ -104,7 +104,7 @@ public class GeoIp
                 reader = new DatabaseReader.Builder( file ).withCache( new CHMCache( 4096 * 4 ) ).build();
             } catch ( IOException ex )
             {
-                LOGGER.log( Level.WARNING, "[BotFilter] На могу подключиться к GeoLite2 датабазе. Перекачиваю", ex );
+                LOGGER.log( Level.WARNING, "[DraimCord] На могу подключиться к GeoLite2 датабазе. Перекачиваю", ex );
                 file.delete();
                 setupDataBase( true );
             }
@@ -113,7 +113,7 @@ public class GeoIp
 
     private void downloadDataBase(final File out)
     {
-        LOGGER.log( Level.INFO, "[BotFilter] Скачиваю GeoLite2 датабазу" );
+        LOGGER.log( Level.INFO, "[DraimCord] Скачиваю GeoLite2 датабазу" );
         long start = System.currentTimeMillis();
         try
         {
@@ -151,10 +151,10 @@ public class GeoIp
             {
                 setupDataBase( false );
             }
-            LOGGER.log( Level.WARNING, "[BotFilter] Не могу скачать GeoLite2 датабазу", ex );
+            LOGGER.log( Level.WARNING, "[DraimCord] Не могу скачать GeoLite2 датабазу", ex );
             return;
         }
-        LOGGER.log( Level.INFO, "[BotFilter] GeoLite2 загружена ({0}мс)", System.currentTimeMillis() - start );
+        LOGGER.log( Level.INFO, "[DraimCord] GeoLite2 загружена ({0}мс)", System.currentTimeMillis() - start );
     }
 
     private void saveToFile(InputStream stream, File out) throws IOException
@@ -169,7 +169,7 @@ public class GeoIp
                 {
                     fis.close();
                     out.delete();
-                    LOGGER.log( Level.WARNING, "[BotFilter] Не удалось скачать GeoLite2 датабазу. Удаляю недокачанный файл." );
+                    LOGGER.log( Level.WARNING, "[DraimCord] Не удалось скачать GeoLite2 датабазу. Удаляю недокачанный файл." );
                     return;
                 }
                 fis.write( buffer, 0, count );

@@ -248,13 +248,13 @@
                             <execution>
                                 <phase>package</phase>
                                 <goals>
-                                    <goal>delombok</goal>
+                                    <goal>draimcord</goal>
                                 </goals>
                             </execution>
                         </executions>
                         <configuration>
                             <addOutputDirectory>false</addOutputDirectory>
-                            <outputDirectory>${project.build.directory}/delombok</outputDirectory>
+                            <outputDirectory>${project.build.directory}/draimcord</outputDirectory>
                             <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
                         </configuration>
                         <dependencies>
@@ -279,7 +279,7 @@
                             </execution>
                             <!-- Then execute it again to generate properly with delombok -->
                             <execution>
-                                <id>delombok</id>
+                                <id>draimcord</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>jar</goal>
@@ -287,7 +287,7 @@
                                 <configuration>
                                     <!-- lombok does not add @return or @param which causes warnings, so ignore -->
                                     <doclint>none</doclint>
-                                    <sourcepath>${project.build.directory}/delombok</sourcepath>
+                                    <sourcepath>${project.build.directory}/draimcord</sourcepath>
                                 </configuration>
                             </execution>
                         </executions>

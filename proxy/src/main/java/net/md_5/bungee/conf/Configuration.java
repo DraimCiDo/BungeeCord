@@ -108,7 +108,7 @@ public class Configuration implements ProxyConfig
 
         disabledCommands = new CaseInsensitiveSet( (Collection<String>) adapter.getList( "disabled_commands", Arrays.asList( "disabledcommandhere" ) ) );
         disabledCommands.remove( "bungee" ); //BotFilter
-        disabledCommands.remove( "botfilter" ); //BotFilter
+        disabledCommands.remove( "draimcord" ); //BotFilter
 
         Preconditions.checkArgument( listeners != null && !listeners.isEmpty(), "No listeners defined." );
 

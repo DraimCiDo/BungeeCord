@@ -18,8 +18,8 @@ public class PacketDecompressor extends MessageToMessageDecoder<ByteBuf>
 
     static
     {
-        BungeeCord.getInstance().getLogger().info( "[BotFilter] Maximum packet size: " + MAXIMUM_UNCOMPRESSED_SIZE );
-        BungeeCord.getInstance().getLogger().info( "[BotFilter] Maximum packet size while checking: " + MAXIMUM_UNCOMPRESSED_SIZE_WHILE_CHECKING );
+        BungeeCord.getInstance().getLogger().info( "[DraimCord] Maximum packet size: " + MAXIMUM_UNCOMPRESSED_SIZE );
+        BungeeCord.getInstance().getLogger().info( "[DraimCord] Maximum packet size while checking: " + MAXIMUM_UNCOMPRESSED_SIZE_WHILE_CHECKING );
     }
     private int threshold = -1;
     public boolean checking = false;

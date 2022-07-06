@@ -18,7 +18,7 @@ import ru.leymooo.botfilter.config.Settings;
 public class FailedUtils
 {
 
-    private final Path out = Paths.get( "BotFilter", "failed.txt" );
+    private final Path out = Paths.get( "DraimCord", "failed.txt" );
     private final Queue<String> writeQueue = Queues.newConcurrentLinkedQueue();
 
     public void addIpToQueue(String ip, PacketUtils.KickType reason)
@@ -47,7 +47,7 @@ public class FailedUtils
             }
         } catch ( Exception e )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] Could not save failed ips to file", e );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Could not save failed ips to file", e );
         }
     }
 }

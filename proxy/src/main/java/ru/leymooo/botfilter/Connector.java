@@ -140,7 +140,7 @@ public class Connector extends MoveHandler
             case ONLY_CAPTCHA:
             case ONLY_POSITION:
             case CAPTCHA_POSITION:
-                String info = "(BF) [" + name + "|" + ip + "] left from server during check";
+                String info = "(DCD) [" + name + "|" + ip + "] left from server during check";
                 LOGGER.log( Level.INFO, info );
                 FailedUtils.addIpToQueue( ip, KickType.LEAVED );
                 break;
@@ -201,7 +201,7 @@ public class Connector extends MoveHandler
         userConnection.setNeedLogin( false );
         userConnection.getPendingConnection().finishLogin( userConnection, true );
         markDisconnected = true;
-        LOGGER.log( Level.INFO, "[BotFilter] Игрок (" + name + "|" + ip + ") успешно прошёл проверку" );
+        LOGGER.log( Level.INFO, "[DraimCord] Игрок (" + name + "|" + ip + ") успешно прошёл проверку" );
     }
 
     @Override
@@ -384,7 +384,7 @@ public class Connector extends MoveHandler
         state = CheckState.FAILED;
         PacketUtils.kickPlayer( type, Protocol.GAME, userConnection.getCh(), version );
         markDisconnected = true;
-        LOGGER.log( Level.INFO, "(BF) [" + name + "|" + ip + "] check failed: " + kickMessage );
+        LOGGER.log( Level.INFO, "(DCD) [" + name + "|" + ip + "] check failed: " + kickMessage );
         if ( type != KickType.BIG_PACKET )
         {
             FailedUtils.addIpToQueue( ip, type );
@@ -400,6 +400,6 @@ public class Connector extends MoveHandler
     @Override
     public String toString()
     {
-        return "[" + name + "|" + ip + "] <-> BotFilter";
+        return "[" + name + "|" + ip + "] <-> DraimCord";
     }
 }

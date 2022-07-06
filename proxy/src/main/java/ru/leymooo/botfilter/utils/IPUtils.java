@@ -31,7 +31,7 @@ public class IPUtils
             return InetAddress.getByName( ip );
         } catch ( UnknownHostException ex )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] Could not get InetAddress for " + ip, ex );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Could not get InetAddress for " + ip, ex );
         }
         return null;
     }

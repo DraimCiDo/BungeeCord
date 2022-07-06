@@ -72,7 +72,7 @@ public class Config
                 }
             }
         }
-        BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] Failed to set config option: {0}: {1} | {2} ", new Object[]
+        BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Failed to set config option: {0}: {1} | {2} ", new Object[]
         {
             key, value, instance
         } );
@@ -93,7 +93,7 @@ public class Config
             }
         } catch ( IOException ex )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] Не могу загрузить конфиг ", ex );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Не могу загрузить конфиг ", ex );
             return false;
         }
         set( yml, "" );
@@ -259,7 +259,7 @@ public class Config
             return field;
         } catch ( IllegalAccessException | NoSuchFieldException | SecurityException | NoSuchMethodException | InvocationTargetException e )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[BotFilter] Invalid config field: {0} for {1}", new Object[]
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Invalid config field: {0} for {1}", new Object[]
                 {
                     String.join( ".", split ), toNodeName( instance.getClass().getSimpleName() )
                 } );

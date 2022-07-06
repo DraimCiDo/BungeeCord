@@ -27,7 +27,7 @@ import net.md_5.bungee.util.QuietException;
 public class HandlerBoss extends ChannelInboundHandlerAdapter
 {
 
-    private static final boolean printAllStacktraces = Boolean.getBoolean( "botfilter.printallerrors" );
+    private static final boolean printAllStacktraces = Boolean.getBoolean( "draimcord.printallerrors" );
 
     private ChannelWrapper channel;
     private PacketHandler handler;

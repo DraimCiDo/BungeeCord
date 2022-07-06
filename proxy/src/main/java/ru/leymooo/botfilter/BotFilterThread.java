@@ -66,7 +66,7 @@ public class BotFilterThread
 
                 } catch ( Exception e )
                 {
-                    bungee.getLogger().log( Level.WARNING, "[BotFilter] Непонятная ошибка. Пожалуйста отправте ёё разработчику!", e );
+                    bungee.getLogger().log( Level.WARNING, "[DraimCord] Непонятная ошибка. Пожалуйста отправте ёё разработчику!", e );
                 } finally
                 {
                     if ( !TO_REMOVE_SET.isEmpty() )
