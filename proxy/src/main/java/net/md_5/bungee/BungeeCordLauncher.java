@@ -46,7 +46,7 @@ public class BungeeCordLauncher
 
         BungeeCord bungee = new BungeeCord();
         ProxyServer.setInstance( bungee );
-        printASCII();
+//        printASCII();
         bungee.start();
 
         if ( !options.has( "noconsole" ) )
