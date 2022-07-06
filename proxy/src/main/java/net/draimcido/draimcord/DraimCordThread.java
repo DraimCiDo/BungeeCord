@@ -66,7 +66,7 @@ public class DraimCordThread
 
                 } catch ( Exception e )
                 {
-                    bungee.getLogger().log( Level.WARNING, "[DraimCord] Непонятная ошибка. Пожалуйста отправте ёё разработчику!", e );
+                    bungee.getLogger().log( Level.WARNING, "§8[§6DraimCord§8] §fНепонятная ошибка. Пожалуйста отправте ёё разработчику!", e );
                 } finally
                 {
                     if ( !TO_REMOVE_SET.isEmpty() )

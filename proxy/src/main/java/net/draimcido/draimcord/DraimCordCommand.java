@@ -35,7 +35,7 @@ public class DraimCordCommand extends Command
         }
         if ( args.length == 0 )
         {
-            sender.sendMessage( "§f--------------- §6DraimCord §cv" + Settings.IMP.BOT_FILTER_VERSION + "§f-----------------" );
+            sender.sendMessage( " §6DraimCord §cv" + Settings.IMP.DRAIMCORD_VERSION + "" );
             sender.sendMessage( "§r> §2draimcord reload §7- §fПерезагружить конфиг" );
             sender.sendMessage( "§r> §2draimcord stat §7- §fПоказать статистику" );
             sender.sendMessage( "§r> §2draimcord export §7- §fВыгрузить список игроков, которые прошли проверку" );
@@ -58,7 +58,7 @@ public class DraimCordCommand extends Command
             {
                 boolean enable = args[1].equalsIgnoreCase( "on" );
                 BungeeCord.getInstance().getDraimCord().setForceProtectionEnabled( enable );
-                sender.sendMessage( "§fЗашита " + ( enable ? "включена" : "§cотключена" ) );
+                sender.sendMessage( "§fЗащита " + ( enable ? "включена" : "§cотключена" ) );
             }
         }
     }
@@ -66,10 +66,8 @@ public class DraimCordCommand extends Command
     private void sendStat(CommandSender sender)
     {
         DraimCord draimCord = BungeeCord.getInstance().getDraimCord();
-        sender.sendMessage( "§f----------------- §6DraimCord §cv" + Settings.IMP.BOT_FILTER_VERSION + " §f-----------------" );
-        sender.sendMessage( "§r> §fОбнаружена атака: " + ( draimCord.isUnderAttack() ? "§cДа" : "§aНет" ) );
-        sender.sendMessage( "§r> §fБотов на проверке: " + draimCord.getOnlineOnFilter() );
-        sender.sendMessage( "§r> §fПрошло проверку: " + draimCord.getUsersCount() );
+        sender.sendMessage( "§6DraimCord §cv" + Settings.IMP.DRAIMCORD_VERSION + " " );
+        sender.sendMessage( "§fОбнаружена атака: " + ( draimCord.isUnderAttack() ? "§cДа" : "§aНет" ) + "§fБотов на проверке: " + draimCord.getOnlineOnFilter() + "§fПрошло проверку: " + draimCord.getUsersCount() );
     }
 
     private void export(CommandSender sender, String[] args)
@@ -78,9 +76,9 @@ public class DraimCordCommand extends Command
 
         if ( args.length == 1 )
         {
-            sender.sendMessage( "§r> §2draimcord export [TIME_IN_SECONDS] §7- §fвыгрузить список тех, кто прошёл"
+            sender.sendMessage( "§2draimcord export [TIME_IN_SECONDS] §7- §fвыгрузить список тех, кто прошёл"
                     + " проверку за указаное время. укажите ALL чтобы получить за всё время." );
-            sender.sendMessage( "§r> §2draimcord export [TIME_IN_SECONDS] JOIN §7- §fвыгрузить список тех,"
+            sender.sendMessage( "§2draimcord export [TIME_IN_SECONDS] JOIN §7- §fвыгрузить список тех,"
                     + " кто зашёл на сервер за указанное время (Учитывает и тех кто  также и прошёл проверку)." );
             return;
         }
@@ -131,7 +129,7 @@ public class DraimCordCommand extends Command
             Files.write( outFile, out, StandardCharsets.UTF_8, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING );
         } catch ( IOException e )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Could not export ip's to file", e );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "§8[§6DraimCord§8] §fCould not export ip's to file", e );
         }
     }
 

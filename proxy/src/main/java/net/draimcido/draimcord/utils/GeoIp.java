@@ -101,7 +101,7 @@ public class GeoIp
                 reader = new DatabaseReader.Builder( file ).withCache( new CHMCache( 4096 * 4 ) ).build();
             } catch ( IOException ex )
             {
-                LOGGER.log( Level.WARNING, "[DraimCord] На могу подключиться к GeoLite2 датабазе. Перекачиваю", ex );
+                LOGGER.log( Level.WARNING, "§8[§6DraimCord§8] §fНа могу подключиться к GeoLite2 датабазе. Перекачиваю", ex );
                 file.delete();
                 setupDataBase( true );
             }
@@ -110,7 +110,7 @@ public class GeoIp
 
     private void downloadDataBase(final File out)
     {
-        LOGGER.log( Level.INFO, "[DraimCord] Скачиваю GeoLite2 датабазу" );
+        LOGGER.log( Level.INFO, "§8[§6DraimCord§8] §fСкачиваю GeoLite2 датабазу" );
         long start = System.currentTimeMillis();
         try
         {
@@ -148,10 +148,10 @@ public class GeoIp
             {
                 setupDataBase( false );
             }
-            LOGGER.log( Level.WARNING, "[DraimCord] Не могу скачать GeoLite2 датабазу", ex );
+            LOGGER.log( Level.WARNING, "§8[§6DraimCord§8] §fНе могу скачать GeoLite2 датабазу", ex );
             return;
         }
-        LOGGER.log( Level.INFO, "[DraimCord] GeoLite2 загружена ({0}мс)", System.currentTimeMillis() - start );
+        LOGGER.log( Level.INFO, "§8[§6DraimCord§8] §fGeoLite2 загружена ({0}мс)", System.currentTimeMillis() - start );
     }
 
     private void saveToFile(InputStream stream, File out) throws IOException
@@ -166,7 +166,7 @@ public class GeoIp
                 {
                     fis.close();
                     out.delete();
-                    LOGGER.log( Level.WARNING, "[DraimCord] Не удалось скачать GeoLite2 датабазу. Удаляю недокачанный файл." );
+                    LOGGER.log( Level.WARNING, "§8[§6DraimCord§8] §fНе удалось скачать GeoLite2 датабазу. Удаляю недокачанный файл." );
                     return;
                 }
                 fis.write( buffer, 0, count );

@@ -25,7 +25,7 @@ public class FakeOnlineUtils
             multiple = Float.parseFloat( boost );
         } catch ( NumberFormatException e )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Не могу активировать фейк онлайн: {0}", e.getMessage() );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "§f[§6DraimCord§8] §fНе могу активировать фейк онлайн: {0}", e.getMessage() );
             return;
         }
         enabled = true;

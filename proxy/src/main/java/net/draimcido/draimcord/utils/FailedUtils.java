@@ -47,7 +47,7 @@ public class FailedUtils
             }
         } catch ( Exception e )
         {
-            BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Could not save failed ips to file", e );
+            BungeeCord.getInstance().getLogger().log( Level.WARNING, "§8[§6DraimCord§8] §fCould not save failed ips to file", e );
         }
     }
 }

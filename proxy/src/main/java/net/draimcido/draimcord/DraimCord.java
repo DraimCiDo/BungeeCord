@@ -405,7 +405,7 @@ public class DraimCord
         Logger logger = BungeeCord.getInstance().getLogger();
         try
         {
-            logger.log( Level.INFO, "[DraimCord] Проверяю наличие обновлений" );
+            logger.log( Level.INFO, "§8[§6DraimCord§8] §7Проверяю наличие обновлений" );
             URL url = new URL( "https://raw.githubusercontent.com/DraimCiDo/BungeeCord/master/version.txt" );
             URLConnection conn = url.openConnection();
             conn.setConnectTimeout( 1200 );
@@ -413,7 +413,7 @@ public class DraimCord
             try ( BufferedReader in = new BufferedReader(
                     new InputStreamReader( conn.getInputStream() ) ) )
             {
-                if ( !in.readLine().trim().equalsIgnoreCase( Settings.IMP.BOT_FILTER_VERSION ) )
+                if ( !in.readLine().trim().equalsIgnoreCase( Settings.IMP.DRAIMCORD_VERSION ) )
                 {
 
                     logger.log( Level.INFO, "§8[§6DraimCord§8] §fНайдена новая версия!" );

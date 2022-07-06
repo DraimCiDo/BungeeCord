@@ -51,13 +51,13 @@ public class CaptchaGeneration
         ThreadPoolExecutor ex = (ThreadPoolExecutor) executor;
         while ( ex.getActiveCount() != 0 )
         {
-            BungeeCord.getInstance().getLogger().log( Level.INFO, "[DraimCord] Генерирую капчу [{0}/900]", 900 - ex.getQueue().size() - ex.getActiveCount() );
+            BungeeCord.getInstance().getLogger().log( Level.INFO, "§8[§6DraimCord§8] §fГенерация Анти-Бот параметров (Подождите не много)" );
             try
             {
                 Thread.sleep( 1000L );
             } catch ( InterruptedException ex1 )
             {
-                BungeeCord.getInstance().getLogger().log( Level.WARNING, "[DraimCord] Не могу сгенерировать капчу. Выключаю банджу", ex1 );
+                BungeeCord.getInstance().getLogger().log( Level.WARNING, "§r[§rDraimCord§r] §rНе могу сгенерировать анти-бот. Вырубаю сервер", ex1 );
                 System.exit( 0 );
                 return;
             }
@@ -65,7 +65,7 @@ public class CaptchaGeneration
         CachedCaptcha.generated = true;
         executor.shutdownNow();
         System.gc();
-        BungeeCord.getInstance().getLogger().log( Level.INFO, "[DraimCord] Капча сгенерированна за {0} мс", System.currentTimeMillis() - start );
+        BungeeCord.getInstance().getLogger().log( Level.INFO, "§8[§6DraimCord§8] §fПараметры для Анти-Бот системы сгенерированы за {0} мс", System.currentTimeMillis() - start );
     }
 
 

@@ -16,7 +16,7 @@ public class Settings extends Config
                     "Все ошибки, баги, предложения и прочее просьба писать Гусю ( DraimGooSe#8815 ) "
             })
     @Final
-    public String BOT_FILTER_VERSION = "3.8.12-dev";
+    public String DRAIMCORD_VERSION = "1.0.1";
 
     @Create
     public MESSAGES MESSAGES;
@@ -64,14 +64,14 @@ public class Settings extends Config
     {
 
         public String PREFIX = "&6&lDraimCord";
-        public String CHECKING = "%prefix%&7>> &fОжидайте завершения проверки...";
-        public String CHECKING_CAPTCHA = "%prefix%&7>> &fВведите номер с картинки в чат";
-        public String CHECKING_CAPTCHA_WRONG = "%prefix%&7>> &fВы ввели капчу неправильно, пожалуйста попробуйте ещё раз. У вас &a%s &c%s";
-        public String SUCCESSFULLY = "%prefix%&7>> &fПроверка пройдена, приятной игры";
-        public String KICK_MANY_CHECKS = "%prefix%%nl%%nl%&fС вашего айпи замечена подозрительная активность%nl%%nl%&fПовторите попытку через 10 минут";
-        public String KICK_NOT_PLAYER = "%prefix%%nl%%nl%&fВы не прошли проверку, возможно вы бот%nl%&fЕсли это не так, пожалуйста повторите попытку";
-        public String KICK_COUNTRY = "%prefix%%nl%%nl%&fВаша страна запрещена на серверве";
-        public String KICK_BIG_PING = "%prefix%%nl%%nl%&fУ вас очень высокий пинг, скорее всего вы бот";
+        public String CHECKING = "%prefix%&7>> &fWait for verification to complete...";
+        public String CHECKING_CAPTCHA = "%prefix%&7>> &fEnter the number from picture in chat";
+        public String CHECKING_CAPTCHA_WRONG = "%prefix%&7>> &fYou entered captcha incorrectly, please try again. At you &a%s &c%s";
+        public String SUCCESSFULLY = "%prefix%&7>> &fVerifying successful, enjoy the game";
+        public String KICK_MANY_CHECKS = "%prefix%%nl%%nl%&fSuspicious activity has been detected from your IP%nl%%nl%&fTry again in 10 minutes";
+        public String KICK_NOT_PLAYER = "%prefix%%nl%%nl%&fYou have not passed the verification, maybe you are a bot%nl%&fIf this is not the case, please try again";
+        public String KICK_COUNTRY = "%prefix%%nl%%nl%&fYour country is banned on the server.";
+        public String KICK_BIG_PING = "%prefix%%nl%%nl%&fYou have a very high ping, most likely you are a bot";
         @Comment(
                 {
                         "Title%nl%Subtitle", "Оставьте пустым, чтобы отключить( прм: CHECKING_TITLE = \"\" )",
@@ -79,7 +79,7 @@ public class Settings extends Config
                 })
         public String CHECKING_TITLE = "&6DraimCord%nl%&6Verifing...";
         public String CHECKING_TITLE_SUS = "&fVerifying successful!%nl%&fEnjoy the game.";
-        public String CHECKING_TITLE_CAPTCHA = " %nl%&fВведите капчу в чат!";
+        public String CHECKING_TITLE_CAPTCHA = " %nl%&fEnter a captcha in the chat!";
     }
 
     @Comment("Включить или отключить GeoIp")
