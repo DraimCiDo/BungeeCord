@@ -105,7 +105,7 @@ public class QueryHandler extends SimpleChannelInboundHandler<DatagramPacket>
                     // Short response
                     writeString( out, listener.getMotd() ); // MOTD
                     writeString( out, "SMP" ); // Game Type
-                    writeString( out, "BotFilter_by_vk.com/Leymooo_s" ); // World Name //BotFilter
+                    writeString( out, "DraimCord" ); // World Name //BotFilter
                     writeNumber( out, bungee.getOnlineCountBF( true ) ); // Online Count//BotFilter
                     writeNumber( out, listener.getMaxPlayers() ); // Max Players
                     writeShort( out, listener.getHost().getPort() ); // Port
@@ -125,7 +125,7 @@ public class QueryHandler extends SimpleChannelInboundHandler<DatagramPacket>
                     data.put( "version", bungee.getCustomBungeeName() ); //BotFilter
                     data.put( "plugins", "" );
                     // End Extra Info
-                    data.put( "map", "BotFilter_by_vk.com/Leymooo_s" ); //BotFilter
+                    data.put( "map", "DraimCord" ); //BotFilter
                     data.put( "numplayers", Integer.toString( bungee.getOnlineCountBF( true ) ) ); //BotFilter
                     data.put( "maxplayers", Integer.toString( listener.getMaxPlayers() ) );
                     data.put( "hostport", Integer.toString( listener.getHost().getPort() ) );

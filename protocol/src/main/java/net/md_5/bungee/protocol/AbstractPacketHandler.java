@@ -1,5 +1,9 @@
 package net.md_5.bungee.protocol;
 
+import net.draimcido.draimcord.packets.Player;
+import net.draimcido.draimcord.packets.PlayerPosition;
+import net.draimcido.draimcord.packets.PlayerPositionAndLook;
+import net.draimcido.draimcord.packets.TeleportConfirm;
 import net.md_5.bungee.protocol.packet.BossBar;
 import net.md_5.bungee.protocol.packet.Chat;
 import net.md_5.bungee.protocol.packet.ClearTitles;
@@ -42,10 +46,6 @@ import net.md_5.bungee.protocol.packet.Team;
 import net.md_5.bungee.protocol.packet.Title;
 import net.md_5.bungee.protocol.packet.TitleTimes;
 import net.md_5.bungee.protocol.packet.ViewDistance;
-import ru.leymooo.botfilter.packets.Player;
-import ru.leymooo.botfilter.packets.PlayerPosition;
-import ru.leymooo.botfilter.packets.PlayerPositionAndLook;
-import ru.leymooo.botfilter.packets.TeleportConfirm;
 
 public abstract class AbstractPacketHandler
 {
@@ -54,7 +54,6 @@ public abstract class AbstractPacketHandler
     {
     }
 
-    //BotFilter statrt
     public void handle(Player player) throws Exception
     {
     }

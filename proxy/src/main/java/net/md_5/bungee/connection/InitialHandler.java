@@ -18,6 +18,9 @@ import javax.crypto.SecretKey;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import net.draimcido.draimcord.utils.FastException;
+import net.draimcido.draimcord.utils.IPUtils;
+import net.draimcido.draimcord.utils.PingLimiter;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.BungeeServerInfo;
 import net.md_5.bungee.EncryptionUtil;
@@ -71,9 +74,6 @@ import net.md_5.bungee.protocol.packet.StatusRequest;
 import net.md_5.bungee.protocol.packet.StatusResponse;
 import net.md_5.bungee.util.AllowedCharacters;
 import net.md_5.bungee.util.QuietException;
-import ru.leymooo.botfilter.utils.FastException;
-import ru.leymooo.botfilter.utils.IPUtils;
-import ru.leymooo.botfilter.utils.PingLimiter;
 
 @RequiredArgsConstructor
 public class InitialHandler extends PacketHandler implements PendingConnection
@@ -332,7 +332,7 @@ public class InitialHandler extends PacketHandler implements PendingConnection
                 }
                 thisState = State.STATUS;
                 ch.setProtocol( Protocol.STATUS );
-                bungee.getBotFilter().getServerPingUtils().add( getAddress().getAddress() ); //BotFilter
+                bungee.getDraimCord().getServerPingUtils().add( getAddress().getAddress() ); //BotFilter
                 break;
             case 2:
                 //botfilter
@@ -370,7 +370,7 @@ public class InitialHandler extends PacketHandler implements PendingConnection
         }
         this.loginRequest = loginRequest;
 
-        bungee.getBotFilter().checkAsyncIfNeeded( this );
+        bungee.getDraimCord().checkAsyncIfNeeded( this );
         //BotFilter moved code to delayedHandleOfLoginRequset();
     }
 
@@ -546,7 +546,7 @@ public class InitialHandler extends PacketHandler implements PendingConnection
         }
 
         //BotFilter start
-        if ( bungee.getBotFilter().isOnChecking( getName() ) )
+        if ( bungee.getDraimCord().isOnChecking( getName() ) )
         {
             disconnect( bungee.getTranslation( "already_connected_proxy" ) ); // TODO: Cache this disconnect packet
             return;
@@ -578,13 +578,13 @@ public class InitialHandler extends PacketHandler implements PendingConnection
 
         sendLoginSuccess( sendLoginSuccess );
 
-        if ( bungee.getBotFilter().needCheck( this ) )
+        if ( bungee.getDraimCord().needCheck( this ) )
         {
             sendLoginSuccess( !sendLoginSuccess ); //Send a loginSuccess if sendLoginSuccess is false
-            bungee.getBotFilter().connectToBotFilter( userCon );
+            bungee.getDraimCord().connectToDraimCord( userCon );
         } else
         {
-            bungee.getBotFilter().saveUser( userCon.getName().toLowerCase(), IPUtils.getAddress( userCon ), false ); //update timestamp
+            bungee.getDraimCord().saveUser( userCon.getName().toLowerCase(), IPUtils.getAddress( userCon ), false ); //update timestamp
             finishLogin( userCon, sendLoginSuccess ); //if true, dont send again login success
         }
     }

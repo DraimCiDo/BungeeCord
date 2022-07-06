@@ -5,10 +5,10 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import java.util.List;
 import lombok.Setter;
+import net.draimcido.draimcord.utils.FastCorruptedFrameException;
+import net.draimcido.draimcord.utils.FastOverflowPacketException;
 import net.md_5.bungee.protocol.packet.Handshake;
 import net.md_5.bungee.protocol.packet.LoginRequest;
-import ru.leymooo.botfilter.utils.FastCorruptedFrameException;
-import ru.leymooo.botfilter.utils.FastOverflowPacketException;
 
 public class Varint21FrameDecoder extends ByteToMessageDecoder
 {

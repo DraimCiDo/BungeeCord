@@ -5,10 +5,11 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 import java.util.List;
+
+import net.draimcido.draimcord.utils.FastBadPacketException;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.jni.zlib.BungeeZlib;
 import net.md_5.bungee.protocol.DefinedPacket;
-import ru.leymooo.botfilter.utils.FastBadPacketException;
 
 public class PacketDecompressor extends MessageToMessageDecoder<ByteBuf>
 {

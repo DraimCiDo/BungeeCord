@@ -6,7 +6,7 @@ import io.netty.handler.codec.MessageToMessageDecoder;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Setter;
-import ru.leymooo.botfilter.utils.FastBadPacketException;
+import net.draimcido.draimcord.utils.FastBadPacketException;
 
 @AllArgsConstructor
 public class MinecraftDecoder extends MessageToMessageDecoder<ByteBuf>

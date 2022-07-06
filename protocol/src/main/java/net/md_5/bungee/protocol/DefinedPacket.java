@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
-import ru.leymooo.botfilter.utils.FastBadPacketException;
-import ru.leymooo.botfilter.utils.FastException;
-import ru.leymooo.botfilter.utils.FastOverflowPacketException;
+import net.draimcido.draimcord.utils.FastBadPacketException;
+import net.draimcido.draimcord.utils.FastException;
+import net.draimcido.draimcord.utils.FastOverflowPacketException;
 import se.llbit.nbt.NamedTag;
 import se.llbit.nbt.Tag;
 
