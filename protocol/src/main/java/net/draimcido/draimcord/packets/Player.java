@@ -27,6 +27,6 @@ public class Player extends DefinedPacket
     @Override
     public void handle(AbstractPacketHandler handler) throws Exception
     {
-        handler.handle(this);
+        handler.handle( this );
     }
 }
