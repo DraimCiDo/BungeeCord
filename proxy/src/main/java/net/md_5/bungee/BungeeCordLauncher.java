@@ -1,5 +1,6 @@
 package net.md_5.bungee;
 
+import java.io.IOException;
 import java.security.Security;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -45,7 +46,7 @@ public class BungeeCordLauncher
 
         BungeeCord bungee = new BungeeCord();
         ProxyServer.setInstance( bungee );
-        bungee.getLogger().log( Level.WARNING, "Включаю DraimCord {0} от DraimGooSe#8815", bungee.getGameVersion() ); //BotFilter
+        printASCII();
         bungee.start();
 
         if ( !options.has( "noconsole" ) )
@@ -59,5 +60,17 @@ public class BungeeCordLauncher
                 }
             }
         }
+    }
+
+    public static void printASCII() throws Exception {
+        BungeeCord bungee = new BungeeCord();
+        bungee.getLogger().log(Level.WARNING, " §6_____     ______     ______     __     __    __     ______     ______     ______     _____    ");
+        bungee.getLogger().log(Level.WARNING, " §6/\\  __-.  /\\  == \\   /\\  __ \\   /\\ \\   /\\ \"-./  \\   /\\  ___\\   /\\  __ \\   /\\  == \\   /\\  __-.  ");
+        bungee.getLogger().log(Level.WARNING, " §6\\ \\ \\/\\ \\ \\ \\  __<   \\ \\  __ \\  \\ \\ \\  \\ \\ \\-./\\ \\  \\ \\ \\____  \\ \\ \\/\\ \\  \\ \\  __<   \\ \\ \\/\\ \\ ");
+        bungee.getLogger().log(Level.WARNING, " §6 \\ \\____-  \\ \\_\\ \\_\\  \\ \\_\\ \\_\\  \\ \\_\\  \\ \\_\\ \\ \\_\\  \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\____- ");
+        bungee.getLogger().log(Level.WARNING, " §6  \\/____/   \\/_/ /_/   \\/_/\\/_/   \\/_/   \\/_/  \\/_/   \\/_____/   \\/_____/   \\/_/ /_/   \\/____/ ");
+        bungee.getLogger().log(Level.WARNING, "                                                                                                ");
+        bungee.getLogger().log(Level.WARNING, "                                                                §6by DraimGooSe        ");
+        bungee.getLogger().log(Level.WARNING, "                                                                                               ");
     }
 }
