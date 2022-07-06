@@ -241,29 +241,10 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.projectlombok</groupId>
-                        <artifactId>lombok-maven-plugin</artifactId>
-                        <version>1.18.20.0</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>draimcord</goal>
-                                </goals>
-                            </execution>
-                        </executions>
                         <configuration>
                             <addOutputDirectory>false</addOutputDirectory>
-                            <outputDirectory>${project.build.directory}/draimcord</outputDirectory>
                             <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
                         </configuration>
-                        <dependencies>
-                            <dependency>
-                                <groupId>org.projectlombok</groupId>
-                                <artifactId>lombok</artifactId>
-                                <version>${lombok.version}</version>
-                            </dependency>
-                        </dependencies>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -276,19 +257,6 @@
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
-                            </execution>
-                            <!-- Then execute it again to generate properly with delombok -->
-                            <execution>
-                                <id>draimcord</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <!-- lombok does not add @return or @param which causes warnings, so ignore -->
-                                    <doclint>none</doclint>
-                                    <sourcepath>${project.build.directory}/draimcord</sourcepath>
-                                </configuration>
                             </execution>
                         </executions>
                         <configuration>
