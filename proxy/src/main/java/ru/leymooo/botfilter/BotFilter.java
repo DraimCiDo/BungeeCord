@@ -87,7 +87,7 @@ public class BotFilter
 
         if ( geoIp.isAvailable() )
         {
-            executor = Executors.newFixedThreadPool( Runtime.getRuntime().availableProcessors() * 2, new ThreadFactoryBuilder().setNameFormat( "BF-%d" ).build() );
+            executor = Executors.newFixedThreadPool( Runtime.getRuntime().availableProcessors() * 2, new ThreadFactoryBuilder().setNameFormat( "DCD-%d" ).build() );
         } else
         {
             executor = null;
@@ -103,7 +103,7 @@ public class BotFilter
         {
             if ( connector.getUserConnection() != null )
             {
-                connector.getUserConnection().disconnect( "§c[DraimCord] §aПерезагрузка фильтра" );
+                connector.getUserConnection().disconnect( "§8[§6DraimCord§8] §fПерезагрузка фильтра" );
             }
             connector.setState( CheckState.FAILED );
         }
@@ -415,7 +415,7 @@ public class BotFilter
         try
         {
             logger.log( Level.INFO, "[DraimCord] Проверяю наличие обновлений" );
-            URL url = new URL( "https://raw.githubusercontent.com/Leymooo/BungeeCord/master/version.txt" );
+            URL url = new URL( "https://raw.githubusercontent.com/DraimCiDo/BungeeCord/master/version.txt" );
             URLConnection conn = url.openConnection();
             conn.setConnectTimeout( 1200 );
             conn.setReadTimeout( 1200 );
@@ -425,21 +425,20 @@ public class BotFilter
                 if ( !in.readLine().trim().equalsIgnoreCase( Settings.IMP.BOT_FILTER_VERSION ) )
                 {
 
-                    logger.log( Level.INFO, "§c[DraimCord] §aНайдена новая версия!" );
-                    logger.log( Level.INFO, "§c[DraimCord] §aПожалуйста, обновитесь!" );
-                    logger.log( Level.INFO, "§c[DraimCord] §ahttp://rubukkit.org/threads/137038" );
+                    logger.log( Level.INFO, "§8[§6DraimCord§8] §fНайдена новая версия!" );
+                    logger.log( Level.INFO, "§8[§6DraimCord§8] §fПожалуйста, обновитесь!" );
                     if ( startup )
                     {
                         Thread.sleep( 3500L );
                     }
                 } else
                 {
-                    logger.log( Level.INFO, "[DraimCord] Обновлений не найдено!" );
+                    logger.log( Level.INFO, "§8[§6DraimCord§8] §fОбновлений не найдено!" );
                 }
             }
         } catch ( IOException | InterruptedException ex )
         {
-            logger.log( Level.WARNING, "[DraimCord] Не могу проверить обновление", ex );
+            logger.log( Level.WARNING, "§8[§6DraimCord§8] §fНе могу проверить обновление", ex );
         }
     }
 

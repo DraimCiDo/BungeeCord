@@ -34,31 +34,31 @@ public class BotFilterCommand extends Command
         }
         if ( args.length == 0 )
         {
-            sender.sendMessage( "§r--------------- §bDraimCord §cv" + Settings.IMP.BOT_FILTER_VERSION + "§r-----------------" );
-            sender.sendMessage( "§r> §ldraimcord reload §6- §aПерезагружить конфиг" );
-            sender.sendMessage( "§r> §ldraimcord stat §6- §aПоказать статистику" );
-            sender.sendMessage( "§r> §ldraimcord export §6- §aВыгрузить список игроков, которые прошли проверку" );
-            sender.sendMessage( "§r> §ldraimcord protection on/off §6- §aВключить или выключить ручной режим 'под атакой'" );
+            sender.sendMessage( "§f--------------- §6DraimCord §cv" + Settings.IMP.BOT_FILTER_VERSION + "§f-----------------" );
+            sender.sendMessage( "§r> §2draimcord reload §7- §fПерезагружить конфиг" );
+            sender.sendMessage( "§r> §2draimcord stat §7- §fПоказать статистику" );
+            sender.sendMessage( "§r> §2draimcord export §7- §fВыгрузить список игроков, которые прошли проверку" );
+            sender.sendMessage( "§r> §2draimcord protection on/off §7- §fВключить или выключить ручной режим 'под атакой'" );
             sender.sendMessage( "§r--------------- §bBotFilter §r-----------------" );
         } else if ( args[0].equalsIgnoreCase( "reload" ) )
         {
             BungeeCord.getInstance().getBotFilter().disable();
             BungeeCord.getInstance().setBotFilter( new BotFilter( false ) );
-            sender.sendMessage( "§aКоманда выполнена" );
+            sender.sendMessage( "§fКоманда выполнена" );
         } else if ( args[0].equalsIgnoreCase( "stat" ) || args[0].equalsIgnoreCase( "stats" ) || args[0].equalsIgnoreCase( "info" ) )
         {
             sendStat( sender );
         } else if ( args[0].equalsIgnoreCase( "export" ) )
         {
             export( sender, args );
-            sender.sendMessage( "§aКоманда выполнена" );
+            sender.sendMessage( "§fКоманда выполнена" );
         } else if ( args[0].equalsIgnoreCase( "protection" ) )
         {
             if ( args.length >= 2 )
             {
                 boolean enable = args[1].equalsIgnoreCase( "on" );
                 BungeeCord.getInstance().getBotFilter().setForceProtectionEnabled( enable );
-                sender.sendMessage( "§aЗашита " + ( enable ? "включена" : "§cотключена" ) );
+                sender.sendMessage( "§fЗашита " + ( enable ? "включена" : "§cотключена" ) );
             }
         }
     }
@@ -66,10 +66,10 @@ public class BotFilterCommand extends Command
     private void sendStat(CommandSender sender)
     {
         BotFilter botFilter = BungeeCord.getInstance().getBotFilter();
-        sender.sendMessage( "§r----------------- §bDraimCord §cv" + Settings.IMP.BOT_FILTER_VERSION + " §r-----------------" );
-        sender.sendMessage( "§r> §lОбнаружена атака: " + ( botFilter.isUnderAttack() ? "§cДа" : "§aНет" ) );
-        sender.sendMessage( "§r> §lБотов на проверке: " + botFilter.getOnlineOnFilter() );
-        sender.sendMessage( "§r> §lПрошло проверку: " + botFilter.getUsersCount() );
+        sender.sendMessage( "§f----------------- §6DraimCord §cv" + Settings.IMP.BOT_FILTER_VERSION + " §f-----------------" );
+        sender.sendMessage( "§r> §fОбнаружена атака: " + ( botFilter.isUnderAttack() ? "§cДа" : "§aНет" ) );
+        sender.sendMessage( "§r> §fБотов на проверке: " + botFilter.getOnlineOnFilter() );
+        sender.sendMessage( "§r> §fПрошло проверку: " + botFilter.getUsersCount() );
     }
 
     private void export(CommandSender sender, String[] args)
@@ -78,9 +78,9 @@ public class BotFilterCommand extends Command
 
         if ( args.length == 1 )
         {
-            sender.sendMessage( "§r> §ldraimcord export [TIME_IN_SECONDS] §6- §aвыгрузить список тех, кто прошёл"
+            sender.sendMessage( "§r> §2draimcord export [TIME_IN_SECONDS] §7- §fвыгрузить список тех, кто прошёл"
                 + " проверку за указаное время. укажите ALL чтобы получить за всё время." );
-            sender.sendMessage( "§r> §ldraimcord export [TIME_IN_SECONDS] JOIN §6- §aвыгрузить список тех,"
+            sender.sendMessage( "§r> §2draimcord export [TIME_IN_SECONDS] JOIN §7- §fвыгрузить список тех,"
                 + " кто зашёл на сервер за указанное время (Учитывает и тех кто  также и прошёл проверку)." );
             return;
         }
@@ -119,7 +119,7 @@ public class BotFilterCommand extends Command
             exportToFile( out, join );
         } catch ( Exception e )
         {
-            sender.sendMessage( "§cУкажите число" );
+            sender.sendMessage( "§fУкажите число" );
         }
     }
 

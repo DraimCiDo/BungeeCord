@@ -80,7 +80,7 @@ public class BotFilterThread
                 }
             }
 
-        }, "BotFilter thread" ) ).start();
+        }, "DraimCord thread" ) ).start();
     }
 
     public static void stop()
